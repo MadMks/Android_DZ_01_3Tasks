@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Основной контейнер-->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,66 +11,117 @@
     android:background="@color/colorBackground"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:background="@color/colorWhite">
+    <!--Контейнер (половина экрана) TODO -->
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:background="@color/colorWhite">-->
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            android:divider="@drawable/spacer_medium"
+            android:showDividers="middle"
+            android:padding="@dimen/spacing_medium">
 
             <TableRow
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:divider="@drawable/spacer_medium"
+                android:showDividers="middle">
 
+                <!--Первая колонка (первой строки)-->
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_height="match_parent"
-                    android:layout_weight="2">
+                    android:layout_weight="2"
+                    android:divider="@drawable/spacer_medium"
+                    android:showDividers="middle">
                     <TextView
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_margin="@dimen/margin_block"
                         android:background="@color/colorGrey"/>
                     <TextView
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_margin="@dimen/margin_block"
                         android:background="@color/colorGrey"/>
                 </LinearLayout>
 
+                <!--Вторая колонка (первой строки)-->
                 <TextView
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:layout_margin="@dimen/margin_block"
                     android:background="@color/colorGrey"/>
+
+                <!--Третья колонка (первой строки)-->
                 <TextView
                     android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_block"
                     android:background="@color/colorGrey"/>
+
+            </TableRow>
+
+            <!--Вторая строка-->
+            <TableRow
+                android:layout_weight="1"
+                android:divider="@drawable/spacer_medium"
+                android:showDividers="middle">
+
+                <!--Первая колонка (второй строки)-->
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/colorGrey"/>
+
+                <!--Вторая колонка (второй строки)-->
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorGrey"/>
+
+                <!--Третья колонка (второй строки)-->
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:divider="@drawable/spacer_medium"
+                    android:showDividers="middle">
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorGrey"/>
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorGrey"/>
+                </LinearLayout>
+
+
 
             </TableRow>
 
         </TableLayout>
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="#fff000">
+    <!--Нижний контейнер (половина экрана)-->
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--android:background="#fff000">-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
 
 </LinearLayout>
