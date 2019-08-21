@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:padding="@dimen/main_padding"
     tools:context=".MainActivity">
 
     <TableLayout
@@ -17,6 +17,7 @@
         android:showDividers="middle"
         android:padding="@dimen/spacing_medium">
 
+        <!--Первая строка-->
         <TableRow
             android:layout_weight="1"
             android:divider="@drawable/spacer_medium"
@@ -71,13 +72,14 @@
 
         </TableRow>
 
+
         <!--Вторая строка-->
         <TableRow
             android:layout_weight="1"
             android:divider="@drawable/spacer_medium"
             android:showDividers="middle">
 
-            <!--Первые две колонки-->
+            <!--Первая и вторая колонки-->
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -102,7 +104,6 @@
 
             </LinearLayout>
 
-
             <!--Третья колонка (второй строки)-->
             <LinearLayout
                 android:orientation="vertical"
@@ -124,7 +125,6 @@
                     android:background="@color/colorGrey" />
 
             </LinearLayout>
-
 
         </TableRow>
 
