@@ -12,8 +12,12 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView tv;
     private TextView tvX;
     private TextView tvY;
+
+    private float x = 0;
+    private float y = 0;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -21,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.tv = this.findViewById(R.id.tv);
         this.tvX = this.findViewById(R.id.tvX);
         this.tvY = this.findViewById(R.id.tvY);
 
@@ -33,21 +38,51 @@ public class MainActivity extends AppCompatActivity {
 
                         int action = motionEvent.getAction();
 
-                        float x = motionEvent.getX();
-                        float y = motionEvent.getY();
+                        float tempX = motionEvent.getX();
+                        float tempY = motionEvent.getY();
 
                         String textX = "X = ";
                         String textY = "Y = ";
+                        String textTV = "_";
                         String text = "";
 //
                         if (action == MotionEvent.ACTION_MOVE){
-                            text += "Перемещение: (" + action + ")" + "\n";
+
+                            
+                            if (
+                                    (tempX != x) && (tempY != y)
+                                    && (
+                                            (tempY < y - 4) || (tempY > y + 4)
+                                            &&
+                                            (tempX < x - 4) || (tempX > x + 4)
+                                            )
+                            ){
+                                textTV += "Перемещение по диагонали";
+                            }
+                            else if (
+                                    (tempX != x)
+                                    && ((tempY > y - 3) && (tempY < y + 3))
+                            ) {
+                                textTV += "Перемещение по X: ";
+                            }
+                            else if (
+                                    (tempX != y)
+                                            && ((tempX > x - 3) && (tempX < x + 3))
+                            ) {
+                                textTV += "Перемещение по Y: ";
+                            }
+
+
+                            x = tempX;
+                            y = tempY;
                         }
 
 
-                        text += "X = " + x + "\nY = " + y;
+                        text += "tempX = " + tempX + "\ntempY = " + tempY;
 
+                        MainActivity.this.tv.setText(textTV);
                         MainActivity.this.tvX.setText(text);
+                        MainActivity.this.tvY.setText("x = " + x + "\ny = " + y);
 
                         return false;
                     }
