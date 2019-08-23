@@ -17,11 +17,26 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/oldX"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/oldY"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/tvX"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tvY"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvD"/>
 
 </LinearLayout>

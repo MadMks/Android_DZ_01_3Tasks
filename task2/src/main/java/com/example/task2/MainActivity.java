@@ -16,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv;
     private TextView tvX;
     private TextView tvY;
+    private TextView tvoldX;
+    private TextView tvoldY;
+    private TextView tvD;
 
     private LinearLayout LL;
 
@@ -44,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
 
         this.LL = this.findViewById(R.id.ll1);
 
+        this.tvoldX = this.findViewById(R.id.oldX);
+        this.tvoldY = this.findViewById(R.id.oldY);
+        this.tvD = this.findViewById(R.id.tvD);
+
 
         LL.setOnTouchListener(
                 new View.OnTouchListener() {
@@ -56,7 +63,14 @@ public class MainActivity extends AppCompatActivity {
                         tvX.setText("_");
                         tvY.setText("_");
 
-                        int margin = 50;
+                        tvoldX.setText("_");
+                        tvoldY.setText("_");
+                        tvD.setText("=");
+
+                        boolean is1 = false;
+
+
+                        int margin = 100;
 
                         switch (motionEvent.getAction()) {
                             case MotionEvent.ACTION_DOWN: // нажатие
@@ -64,12 +78,18 @@ public class MainActivity extends AppCompatActivity {
                                 sMove = ""; sUp = "";
                                 oldX = motionEvent.getX();
                                 oldY = motionEvent.getY();
+
+                                tvoldX.setText("oldX - " + oldX);
+                                tvoldX.setText("oldY - " + oldY);
                                 break;
                             case MotionEvent.ACTION_MOVE: // движение
                                 sMove = "Move: " + x + "," + y;
 
+
+
+                                // Если движение по X
                                 if (
-                                    (x > oldX + 20 || x < oldX - 20)
+                                    (x > oldX + 50 || x < oldX - 50) // в любую сторону по Х от нажатия
                                     && (
                                         y > (oldY - margin)
                                         &&
@@ -77,11 +97,18 @@ public class MainActivity extends AppCompatActivity {
                                     )
                                 ){
 //                                    oldX = motionEvent.getX();
-                                    tvX.setText("Движение по X" + "___ cntX=" + cntX);
+                                    tvX.setText("Движение по X");
                                 }
+                                // Сброс oldX при превышении допустимого отступа от Y для движения
+//                                else if (y < (oldY - margin) || y > (oldY + margin)){
+//                                    oldY = motionEvent.getY();
+//                                    tvoldY.setText("oldY - " + oldY);
+//                                }
 
-                                if (
-                                    (y > oldY + 20 || y < oldY - 20)
+
+                                // Если движение по Y
+                                 if (
+                                    (y > oldY + 50 || y < oldY - 50) // в любую сторону по Y от нажатия
                                     && (
                                         x > (oldX - margin)
                                         &&
@@ -91,6 +118,21 @@ public class MainActivity extends AppCompatActivity {
 //                                    oldY = motionEvent.getY();
                                     tvY.setText("Движение по Y");
                                 }
+                                // Сброс oldY при превышении допустимого отступа от X для движения
+//                                else if (x < (oldX - margin) || x > (oldX + margin)){
+////                                    oldX = motionEvent.getX();
+////                                    tvoldX.setText("oldX - " + oldX);
+//                                    is1 = true;
+//                                }
+//                                else {
+//                                    tvD.setText("=== По диагонали");
+//                                }
+
+
+
+
+
+
 
                                 break;
                             case MotionEvent.ACTION_UP: // отпускание
