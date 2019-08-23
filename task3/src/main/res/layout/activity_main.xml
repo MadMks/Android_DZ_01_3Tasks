@@ -16,7 +16,7 @@
         <!--Экран-->
         <TableRow
             android:background="@color/colorResultScreen"
-            android:layout_weight="2">
+            android:layout_weight="1">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -28,9 +28,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="35pt"
+                    android:textSize="20pt"
                     android:gravity="end"
                     android:background="@color/colorResultScreen"
+                    android:padding="@dimen/padding_TV"
                     android:text="test"/>
 
             </LinearLayout>
@@ -45,17 +46,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/marginButton"/>
+                android:layout_margin="@dimen/marginButton"
+                android:textSize="@dimen/sizeTextBtn"
+                android:text="C"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/marginButton"/>
+                android:layout_margin="@dimen/marginButton"
+                android:textSize="@dimen/sizeTextBtn"
+                android:text="←"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/marginButton"/>
+                android:layout_margin="@dimen/marginButton"
+                android:textSize="@dimen/sizeTextBtn"
+                android:text="+"/>
 
         </TableRow>
 
@@ -67,22 +74,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/marginButton"/>
+                android:layout_margin="@dimen/marginButton"
+                android:textSize="@dimen/sizeTextBtn"
+                android:text="7"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/marginButton"/>
+                android:layout_margin="@dimen/marginButton"
+                android:textSize="@dimen/sizeTextBtn"
+                android:text="8"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/marginButton"/>
+                android:layout_margin="@dimen/marginButton"
+                android:textSize="@dimen/sizeTextBtn"
+                android:text="9"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/marginButton"/>
+                android:layout_margin="@dimen/marginButton"
+                android:textSize="@dimen/sizeTextBtn"
+                android:text="-"/>
 
         </TableRow>
 
@@ -94,22 +109,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/marginButton"/>
+                android:layout_margin="@dimen/marginButton"
+                android:textSize="@dimen/sizeTextBtn"
+                android:text="4"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/marginButton"/>
+                android:layout_margin="@dimen/marginButton"
+                android:textSize="@dimen/sizeTextBtn"
+                android:text="5"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/marginButton"/>
+                android:layout_margin="@dimen/marginButton"
+                android:textSize="@dimen/sizeTextBtn"
+                android:text="6"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/marginButton"/>
+                android:layout_margin="@dimen/marginButton"
+                android:textSize="@dimen/sizeTextBtn"
+                android:text="*"/>
 
         </TableRow>
 
@@ -121,22 +144,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/marginButton"/>
+                android:layout_margin="@dimen/marginButton"
+                android:textSize="@dimen/sizeTextBtn"
+                android:text="1"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/marginButton"/>
+                android:layout_margin="@dimen/marginButton"
+                android:textSize="@dimen/sizeTextBtn"
+                android:text="2"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/marginButton"/>
+                android:layout_margin="@dimen/marginButton"
+                android:textSize="@dimen/sizeTextBtn"
+                android:text="3"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/marginButton"/>
+                android:layout_margin="@dimen/marginButton"
+                android:textSize="@dimen/sizeTextBtn"
+                android:text="/"/>
 
         </TableRow>
 
@@ -148,12 +179,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/marginButton"/>
+                android:layout_margin="@dimen/marginButton"
+                android:textSize="@dimen/sizeTextBtn"
+                android:text="0"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_margin="@dimen/marginButton"/>
+                android:layout_margin="@dimen/marginButton"
+                android:textSize="@dimen/sizeTextBtn"
+                android:text="="/>
 
         </TableRow>
 

@@ -2,4 +2,6 @@
 <resources>
     <dimen name="marginButton">2dp</dimen>
     <dimen name="paddingAroundWidget">3dp</dimen>
+    <dimen name="sizeTextBtn">20pt</dimen>
+    <dimen name="padding_TV">10dp</dimen>
 </resources>
