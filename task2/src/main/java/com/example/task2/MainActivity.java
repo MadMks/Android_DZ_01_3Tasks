@@ -29,11 +29,9 @@ public class MainActivity extends AppCompatActivity {
     String sMove;
     String sUp;
 
-    private float oldX;
-    private float oldY;
+    private float startX;
+    private float startY;
 
-    private int cntX;
-    private int cntY;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -67,83 +65,40 @@ public class MainActivity extends AppCompatActivity {
                         tvoldY.setText("_");
                         tvD.setText("=");
 
-                        boolean is1 = false;
-
-
-                        int margin = 100;
 
                         switch (motionEvent.getAction()) {
                             case MotionEvent.ACTION_DOWN: // нажатие
-                                sDown = "Down: " + x + "," + y;
-                                sMove = ""; sUp = "";
-                                oldX = motionEvent.getX();
-                                oldY = motionEvent.getY();
 
-                                tvoldX.setText("oldX - " + oldX);
-                                tvoldX.setText("oldY - " + oldY);
+                                startX = motionEvent.getX();
+                                startY = motionEvent.getY();
+
                                 break;
                             case MotionEvent.ACTION_MOVE: // движение
-                                sMove = "Move: " + x + "," + y;
 
 
+                                float x = motionEvent.getX();
+                                float y = motionEvent.getY();
 
-                                // Если движение по X
-                                if (
-                                    (x > oldX + 50 || x < oldX - 50) // в любую сторону по Х от нажатия
-                                    && (
-                                        y > (oldY - margin)
-                                        &&
-                                        y < (oldY + margin)
-                                    )
-                                ){
-//                                    oldX = motionEvent.getX();
-                                    tvX.setText("Движение по X");
-                                }
-                                // Сброс oldX при превышении допустимого отступа от Y для движения
-//                                else if (y < (oldY - margin) || y > (oldY + margin)){
-//                                    oldY = motionEvent.getY();
-//                                    tvoldY.setText("oldY - " + oldY);
-//                                }
+                                Direction direction = getDirection(startX, startY, x, y);
 
-
-                                // Если движение по Y
-                                 if (
-                                    (y > oldY + 50 || y < oldY - 50) // в любую сторону по Y от нажатия
-                                    && (
-                                        x > (oldX - margin)
-                                        &&
-                                        x < (oldX + margin)
-                                        )
-                                ) {
-//                                    oldY = motionEvent.getY();
+                                if (direction == Direction.DOWN || direction == Direction.UP){
                                     tvY.setText("Движение по Y");
                                 }
-                                // Сброс oldY при превышении допустимого отступа от X для движения
-//                                else if (x < (oldX - margin) || x > (oldX + margin)){
-////                                    oldX = motionEvent.getX();
-////                                    tvoldX.setText("oldX - " + oldX);
-//                                    is1 = true;
-//                                }
-//                                else {
-//                                    tvD.setText("=== По диагонали");
-//                                }
-
-
-
-
-
-
+                                else if (direction == Direction.LEFT || direction == Direction.RIGHT){
+                                    tvX.setText("Движение по X");
+                                }
+                                else {
+                                    tvD.setText("=== Движение по диагонали");
+                                }
 
                                 break;
                             case MotionEvent.ACTION_UP: // отпускание
                             case MotionEvent.ACTION_CANCEL:
-                                sMove = "";
-                                sUp = "Up: " + x + "," + y;
+
                                 break;
                         }
-                        tv.setText(sDown + "\n" + sMove + "\n" + sUp);
 
-                        return true;
+                        return false;
                     }
                 }
         );
@@ -157,4 +112,54 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
     }
+
+    public Direction getDirection(float x1, float y1, float x2, float y2) {
+        double angle = getAngle(x1, y1, x2, y2);
+        return Direction.get(angle);
+    }
+
+    public double getAngle(float x1, float y1, float x2, float y2) {
+        double rad = Math.atan2(y1 - y2, x2 - x1) + Math.PI;
+        return (rad * 180 / Math.PI + 180) % 360;
+    }
+
+    public enum Direction {
+        NOT_DETECTED,
+        UP,
+        DOWN,
+        LEFT,
+        RIGHT,
+        DIAGONAL;
+
+        public static Direction get(double angle) {
+//            if (inRange(angle, 45, 135)) {
+//                return Direction.UP;
+//            } else if (inRange(angle, 0, 45) || inRange(angle, 315, 360)) {
+//                return Direction.RIGHT;
+//            } else if (inRange(angle, 225, 315)) {
+//                return Direction.DOWN;
+//            } else {
+//                return Direction.LEFT;
+//            }
+
+            if (inRange(angle, 65, 115)) {
+                return Direction.UP;
+            } else if (inRange(angle, 0, 25) || inRange(angle, 335, 360)) {
+                return Direction.RIGHT;
+            } else if (inRange(angle, 245, 295)) {
+                return Direction.DOWN;
+            } else if (inRange(angle, 155, 205)){
+                return Direction.LEFT;
+            } else{
+                return Direction.DIAGONAL;
+            }
+        }
+
+        private static boolean inRange(double angle, float init, float end) {
+            return (angle >= init) && (angle < end);
+        }
+    }
 }
+
+
+
