@@ -13,21 +13,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView tv;
-    private TextView tvX;
-    private TextView tvY;
-    private TextView tvoldX;
-    private TextView tvoldY;
-    private TextView tvD;
-
     private LinearLayout LL;
-
-
-    float x;
-    float y;
-    String sDown;
-    String sMove;
-    String sUp;
 
     private float startX;
     private float startY;
@@ -39,31 +25,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.tv = this.findViewById(R.id.tv);
-        this.tvX = this.findViewById(R.id.tvX);
-        this.tvY = this.findViewById(R.id.tvY);
-
         this.LL = this.findViewById(R.id.ll1);
-
-        this.tvoldX = this.findViewById(R.id.oldX);
-        this.tvoldY = this.findViewById(R.id.oldY);
-        this.tvD = this.findViewById(R.id.tvD);
-
 
         LL.setOnTouchListener(
                 new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View view, MotionEvent motionEvent) {
-
-                        x = motionEvent.getX();
-                        y = motionEvent.getY();
-
-                        tvX.setText("_");
-                        tvY.setText("_");
-
-                        tvoldX.setText("_");
-                        tvoldY.setText("_");
-                        tvD.setText("=");
 
 
                         switch (motionEvent.getAction()) {
@@ -82,13 +49,13 @@ public class MainActivity extends AppCompatActivity {
                                 Direction direction = getDirection(startX, startY, x, y);
 
                                 if (direction == Direction.DOWN || direction == Direction.UP){
-                                    tvY.setText("Движение по Y");
+                                    LL.setBackgroundColor(Color.YELLOW);
                                 }
                                 else if (direction == Direction.LEFT || direction == Direction.RIGHT){
-                                    tvX.setText("Движение по X");
+                                    LL.setBackgroundColor(Color.GREEN);
                                 }
                                 else {
-                                    tvD.setText("=== Движение по диагонали");
+                                    LL.setBackgroundColor(Color.RED);
                                 }
 
                                 break;
