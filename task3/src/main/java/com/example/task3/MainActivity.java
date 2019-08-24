@@ -63,9 +63,9 @@ public class MainActivity extends AppCompatActivity {
         this.btn9 = this.findViewById(R.id.btn_9);
         // Знаки.
         this.btnPlus = this.findViewById(R.id.btn_plus);
-        this.btnPlus = this.findViewById(R.id.btn_minus);
-        this.btnPlus = this.findViewById(R.id.btn_multiply);
-        this.btnPlus = this.findViewById(R.id.btn_divide);
+        this.btnMinus = this.findViewById(R.id.btn_minus);
+        this.btnMultiply = this.findViewById(R.id.btn_multiply);
+        this.btnDivide = this.findViewById(R.id.btn_divide);
         this.btnEqually = this.findViewById(R.id.btn_equally);
 
 
@@ -147,8 +147,12 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (view.getId()){
                     case R.id.btn_plus:
+                    case R.id.btn_minus:
+                    case R.id.btn_multiply:
+                    case R.id.btn_divide:
                         // Вывести на табло 0
                         tvScreen.setText("0");
+                        // TODO вывести на знаг на доа строку на табло.
                         break;
                     case R.id.btn_equally:
                         // Вывести на табло результат вычисления
