@@ -20,10 +20,21 @@ public class MainActivity extends AppCompatActivity {
     private Button btnC;
     private Button btnBackspace;
     // Цифры.
+    private Button btn0;
     private Button btn1;
     private Button btn2;
+    private Button btn3;
+    private Button btn4;
+    private Button btn5;
+    private Button btn6;
+    private Button btn7;
+    private Button btn8;
+    private Button btn9;
     // Знаки.
     private Button btnPlus;
+    private Button btnMinus;
+    private Button btnMultiply;
+    private Button btnDivide;
     private Button btnEqually;
 
 
@@ -40,10 +51,21 @@ public class MainActivity extends AppCompatActivity {
         this.btnC = this.findViewById(R.id.btn_C);
         this.btnBackspace = this.findViewById(R.id.btn_backspace);
         // Цифры.
+        this.btn0 = this.findViewById(R.id.btn_0);
         this.btn1 = this.findViewById(R.id.btn_1);
         this.btn2 = this.findViewById(R.id.btn_2);
+        this.btn3 = this.findViewById(R.id.btn_3);
+        this.btn4 = this.findViewById(R.id.btn_4);
+        this.btn5 = this.findViewById(R.id.btn_5);
+        this.btn6 = this.findViewById(R.id.btn_6);
+        this.btn7 = this.findViewById(R.id.btn_7);
+        this.btn8 = this.findViewById(R.id.btn_8);
+        this.btn9 = this.findViewById(R.id.btn_9);
         // Знаки.
         this.btnPlus = this.findViewById(R.id.btn_plus);
+        this.btnPlus = this.findViewById(R.id.btn_minus);
+        this.btnPlus = this.findViewById(R.id.btn_multiply);
+        this.btnPlus = this.findViewById(R.id.btn_divide);
         this.btnEqually = this.findViewById(R.id.btn_equally);
 
 
@@ -141,13 +163,25 @@ public class MainActivity extends AppCompatActivity {
 
         // Элементы управления.
         btnC.setOnClickListener(onClickControlsListener);
+        btnBackspace.setOnClickListener(onClickControlsListener);   // TODO
 
         // Цифры.
+        btn0.setOnClickListener(onClickNumberListener); // TODO
         btn1.setOnClickListener(onClickNumberListener);
         btn2.setOnClickListener(onClickNumberListener);
+        btn3.setOnClickListener(onClickNumberListener);
+        btn4.setOnClickListener(onClickNumberListener);
+        btn5.setOnClickListener(onClickNumberListener);
+        btn6.setOnClickListener(onClickNumberListener);
+        btn7.setOnClickListener(onClickNumberListener);
+        btn8.setOnClickListener(onClickNumberListener);
+        btn9.setOnClickListener(onClickNumberListener);
 
         // Знаки.
         btnPlus.setOnClickListener(onClickSignListener);
+        btnMinus.setOnClickListener(onClickSignListener);
+        btnMultiply.setOnClickListener(onClickSignListener);
+        btnDivide.setOnClickListener(onClickSignListener);
         btnEqually.setOnClickListener(onClickSignListener);
     }
 
