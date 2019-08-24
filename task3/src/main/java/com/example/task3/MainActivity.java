@@ -88,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.btn_C:
                         // Вывести ноль на экран
                         tvScreen.setText("0");
-                        // TODO обнулить массивы
+                        // Обнуляем массивы
+                        calculator.clearLists();
                         break;
                     case R.id.btn_backspace:
                         // TODO удалить последний символ с табло
@@ -134,29 +135,31 @@ public class MainActivity extends AppCompatActivity {
                 // Log
                 Log.d(TAG, "onClickSignListener " + clickBtn.getText());
 
-                // TODO записать число и знак
+                // Записиваем число и знак
                 Integer num = Integer.parseInt(tvScreen.getText().toString());
                 String sign = clickBtn.getText().toString();
-
-
+                Log.d(TAG, "num = " + num);
                 calculator.setNumber(num);
                 calculator.setSign(sign);
+
                 // TODO если нажать 2 знака подряд - второй перезапишет предыдущий
 
 
-
+                // Действия:
                 switch (view.getId()){
                     case R.id.btn_plus:
                     case R.id.btn_minus:
                     case R.id.btn_multiply:
                     case R.id.btn_divide:
+
                         // Вывести на табло 0
                         tvScreen.setText("0");
-                        // TODO вывести на знаг на доа строку на табло.
+                        // TODO вывести знак на доп. строку на табло.
                         break;
                     case R.id.btn_equally:
                         // Вывести на табло результат вычисления
                         tvScreen.setText(calculator.getResult());
+                        calculator.clearLists();
                         break;
                 }
             }

@@ -41,18 +41,22 @@ public class Calculator {
 
     public String getResult() {
 
+        // TODO - если елементов нет, но на табло не 0 -
+
         // Если элементов меньше 2х
         if (numbers.size() < 2){
+            Log.d(TAG, "numbers.size() < 2" + Integer.toString(numbers.size()));
+
             if (numbers.size() == 0) return "0";
             else return Integer.toString(numbers.pollFirst());
         }
 
         // TODO метод не нужен (лишние знаки не используются)
         // Если после знака нажали =
-        if (numbers.size() == signs.size()) {
-            // Удалим последний (не используемый знак)
-            signs.removeLast();
-        }
+//        if (numbers.size() == signs.size()) {
+//            // Удалим последний (не используемый знак)
+//            signs.removeLast();
+//        }
 
         int result = 0;
         boolean isFirstCalculation = true;
@@ -71,7 +75,7 @@ public class Calculator {
                 s = signs.pollFirst();
 
                 // Проверка деления на 0
-                if ((s == "/") && (b == 0)) {
+                if ((s.equals("/")) && (b == 0)) {
                     // TODO в верхнюю (дополнительную) строку дописать "Деление на ноль"
                     return "Невозможно";
                 }
@@ -106,5 +110,14 @@ public class Calculator {
         }
 
         return result;
+    }
+
+    public void clearLists(){
+        if (numbers.size() != 0) numbers.clear();
+        if (signs.size() != 0) signs.clear();
+    }
+
+    public boolean isEmptyNumbers(){
+        return numbers.isEmpty();
     }
 }
