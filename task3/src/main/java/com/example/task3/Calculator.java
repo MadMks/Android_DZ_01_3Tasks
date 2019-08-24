@@ -117,7 +117,4 @@ public class Calculator {
         if (signs.size() != 0) signs.clear();
     }
 
-    public boolean isEmptyNumbers(){
-        return numbers.isEmpty();
-    }
 }

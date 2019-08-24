@@ -92,7 +92,17 @@ public class MainActivity extends AppCompatActivity {
                         calculator.clearLists();
                         break;
                     case R.id.btn_backspace:
-                        // TODO удалить последний символ с табло
+
+                        if (isScreenShowError()) resetScreen();
+
+                        if (tvScreen.getText().length() > 1){
+                            StringBuilder str = new StringBuilder(tvScreen.getText());
+                            str.deleteCharAt(str.length() - 1);
+                            tvScreen.setText(str);
+                        }
+                        else{
+                            resetScreen();
+                        }
 
                         break;
                 }
@@ -103,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener onClickNumberListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if (isScreenShowError()) resetScreen();
 
                 Button clickBtn = findViewById(view.getId());
 
@@ -129,6 +141,8 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener onClickSignListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if (isScreenShowError()) resetScreen();
 
                 Button clickBtn = findViewById(view.getId());
 
@@ -170,10 +184,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Элементы управления.
         btnC.setOnClickListener(onClickControlsListener);
-        btnBackspace.setOnClickListener(onClickControlsListener);   // TODO
+        btnBackspace.setOnClickListener(onClickControlsListener);
 
         // Цифры.
-        btn0.setOnClickListener(onClickNumberListener); // TODO
+        btn0.setOnClickListener(onClickNumberListener);
         btn1.setOnClickListener(onClickNumberListener);
         btn2.setOnClickListener(onClickNumberListener);
         btn3.setOnClickListener(onClickNumberListener);
@@ -190,6 +204,18 @@ public class MainActivity extends AppCompatActivity {
         btnMultiply.setOnClickListener(onClickSignListener);
         btnDivide.setOnClickListener(onClickSignListener);
         btnEqually.setOnClickListener(onClickSignListener);
+    }
+
+
+    private boolean isScreenShowError() {
+        if (tvScreen.getText().equals("Невозможно")){
+            return true;
+        }
+        return false;
+    }
+
+    private void resetScreen() {
+        tvScreen.setText("0");
     }
 
 }
