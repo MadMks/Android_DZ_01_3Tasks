@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn2;
     // Знаки.
     private Button btnPlus;
+    private Button btnEqually;
 
 
     @Override
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         this.btn2 = this.findViewById(R.id.btn_2);
         // Знаки.
         this.btnPlus = this.findViewById(R.id.btn_plus);
+        this.btnEqually = this.findViewById(R.id.btn_equally);
 
 
         // Значение экрана по умолчанию
@@ -117,9 +119,20 @@ public class MainActivity extends AppCompatActivity {
 
                 calculator.setNumber(num);
                 calculator.setSign(sign);
+                // TODO если нажать 2 знака подряд - второй перезапишет предыдущий
 
-                // Вывести на табло 0
-                tvScreen.setText("0");
+
+
+                switch (view.getId()){
+                    case R.id.btn_plus:
+                        // Вывести на табло 0
+                        tvScreen.setText("0");
+                        break;
+                    case R.id.btn_equally:
+                        // Вывести на табло результат вычисления
+                        tvScreen.setText(calculator.getResult());
+                        break;
+                }
             }
         };
 
@@ -135,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Знаки.
         btnPlus.setOnClickListener(onClickSignListener);
+        btnEqually.setOnClickListener(onClickSignListener);
     }
 
 }
