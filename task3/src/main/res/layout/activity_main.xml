@@ -56,7 +56,8 @@
                 android:layout_weight="1"
                 android:layout_margin="@dimen/marginButton"
                 android:textSize="@dimen/sizeTextBtn"
-                android:text="←"/>
+                android:text="←"
+                android:id="@+id/btn_backspace"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

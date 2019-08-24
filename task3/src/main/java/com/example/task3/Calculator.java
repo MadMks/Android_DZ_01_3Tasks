@@ -12,13 +12,14 @@ public class Calculator {
     private final static String TAG = "=== Calculator ";
 
     private LinkedList<Integer> numbers;
-    private Deque<String> signs;
+    private LinkedList<String> signs;
     private TextView textView;
 
     public Calculator(TextView textViewForScreen) {
         this.textView = textViewForScreen;
 
-        numbers = new LinkedList<Integer>();
+        numbers = new LinkedList<>();
+        signs = new LinkedList<>();
 
         Log.d(TAG, "Constructor");
     }
@@ -32,7 +33,9 @@ public class Calculator {
     }
 
     public void setSign(String sign) {
-        signs.addLast(sign);
-        Log.d(TAG, "added sign: " + signs.peekLast());
+        if (signs != null){
+            signs.addLast(sign);
+            Log.d(TAG, "added sign: " + signs.peekLast());
+        }
     }
 }

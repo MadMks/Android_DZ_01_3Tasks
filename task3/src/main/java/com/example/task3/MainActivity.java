@@ -15,12 +15,14 @@ public class MainActivity extends AppCompatActivity {
     private Calculator calculator;
     private TextView tvScreen;
 
-    // Кнопки
+    // === Кнопки
+    // Элементы управления.
     private Button btnC;
-
+    private Button btnBackspace;
+    // Цифры.
     private Button btn1;
     private Button btn2;
-
+    // Знаки.
     private Button btnPlus;
 
 
@@ -32,20 +34,24 @@ public class MainActivity extends AppCompatActivity {
         tvScreen = this.findViewById(R.id.calc_screen);
         this.calculator = new Calculator(tvScreen);
 
-        // Присваиваем кнопки по id
+        // === Присваиваем полям кнопки по id
+        // Элементы управления
         this.btnC = this.findViewById(R.id.btn_C);
-
+        this.btnBackspace = this.findViewById(R.id.btn_backspace);
+        // Цифры.
         this.btn1 = this.findViewById(R.id.btn_1);
         this.btn2 = this.findViewById(R.id.btn_2);
-
+        // Знаки.
         this.btnPlus = this.findViewById(R.id.btn_plus);
+
 
         // Значение экрана по умолчанию
         tvScreen.setText("0");
 
-        // Один обработчик для всех нажатий
-        // TODO: переделать на несколько обработчиков
-        View.OnClickListener onClickListener = new View.OnClickListener() {
+        // === Обработчики
+
+        // Элементы управления.
+        View.OnClickListener onClickControlsListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -60,45 +66,75 @@ public class MainActivity extends AppCompatActivity {
                         tvScreen.setText("0");
                         // TODO обнулить массивы
                         break;
-                    case R.id.btn_1:
-                    case R.id.btn_2:
-                        // TODO отобразить на экране
-                        String str = "0";
-                        Log.d(TAG, "tvScreen: " + tvScreen.getText().toString());
-                        if (tvScreen.getText() != "0"){
-                            str = tvScreen.getText().toString() +
-                                    clickBtn.getText().toString();
-                        }
-                        else{
-                            str = clickBtn.getText().toString();
-                        }
-                        tvScreen.setText(str);
-                        Log.d(TAG, "tvScreen: " + tvScreen.getText().toString());
-                        break;
-                        // + - * /
-                    case R.id.btn_plus:
+                    case R.id.btn_backspace:
+                        // TODO удалить последний символ с табло
 
-                        // TODO записать число и знак
-                        Integer num = Integer.parseInt(tvScreen.getText().toString());
-                        String sign = clickBtn.getText().toString();
-
-
-                        calculator.setNumber(num);
-//                        calculator.setSign(sign);
-
-                        // Вывести на табло 0
-                        tvScreen.setText("0");
                         break;
                 }
             }
         };
 
+        // Цифры.
+        View.OnClickListener onClickNumberListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        btnC.setOnClickListener(onClickListener);
+                Button clickBtn = findViewById(view.getId());
 
-        btn1.setOnClickListener(onClickListener);
-        btn2.setOnClickListener(onClickListener);
+                // Log
+                Log.d(TAG, "onClickNumberListener " + clickBtn.getText());
 
-        btnPlus.setOnClickListener(onClickListener);
+                // Отображение на табло
+                String tempStr;
+                Log.d(TAG, "tvScreen: " + tvScreen.getText().toString());
+
+                if (tvScreen.getText() != "0"){
+                    tempStr = tvScreen.getText().toString() +
+                            clickBtn.getText().toString();
+                }
+                else{
+                    tempStr = clickBtn.getText().toString();
+                }
+                tvScreen.setText(tempStr);
+                Log.d(TAG, "tvScreen: " + tvScreen.getText().toString());
+            }
+        };
+
+        // Знаки.
+        View.OnClickListener onClickSignListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Button clickBtn = findViewById(view.getId());
+
+                // Log
+                Log.d(TAG, "onClickSignListener " + clickBtn.getText());
+
+                // TODO записать число и знак
+                Integer num = Integer.parseInt(tvScreen.getText().toString());
+                String sign = clickBtn.getText().toString();
+
+
+                calculator.setNumber(num);
+                calculator.setSign(sign);
+
+                // Вывести на табло 0
+                tvScreen.setText("0");
+            }
+        };
+
+
+        // === Добавление обработчиков кнопкам.
+
+        // Элементы управления.
+        btnC.setOnClickListener(onClickControlsListener);
+
+        // Цифры.
+        btn1.setOnClickListener(onClickNumberListener);
+        btn2.setOnClickListener(onClickNumberListener);
+
+        // Знаки.
+        btnPlus.setOnClickListener(onClickSignListener);
     }
+
 }
