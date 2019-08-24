@@ -32,7 +32,6 @@
                     android:gravity="end"
                     android:background="@color/colorResultScreen"
                     android:padding="@dimen/padding_TV"
-                    android:text="test"
                     android:id="@+id/calc_screen"/>
 
             </LinearLayout>
@@ -49,7 +48,8 @@
                 android:layout_weight="1"
                 android:layout_margin="@dimen/marginButton"
                 android:textSize="@dimen/sizeTextBtn"
-                android:text="C"/>
+                android:text="C"
+                android:id="@+id/btn_C"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -63,7 +63,8 @@
                 android:layout_weight="1"
                 android:layout_margin="@dimen/marginButton"
                 android:textSize="@dimen/sizeTextBtn"
-                android:text="+"/>
+                android:text="+"
+                android:id="@+id/btn_plus"/>
 
         </TableRow>
 
@@ -163,7 +164,8 @@
                 android:layout_weight="1"
                 android:layout_margin="@dimen/marginButton"
                 android:textSize="@dimen/sizeTextBtn"
-                android:text="3"/>
+                android:text="3"
+                android:id="@+id/btn_3"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
