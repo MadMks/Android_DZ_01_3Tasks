@@ -21,9 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btn1;
     private Button btn2;
 
-    public MainActivity() {
+    private Button btnPlus;
 
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
         this.btn1 = this.findViewById(R.id.btn_1);
         this.btn2 = this.findViewById(R.id.btn_2);
+
+        this.btnPlus = this.findViewById(R.id.btn_plus);
 
         // Значение экрана по умолчанию
         tvScreen.setText("0");
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.btn_2:
                         // TODO отобразить на экране
                         String str = "0";
-                        Log.d(TAG, tvScreen.getText().toString());
+                        Log.d(TAG, "tvScreen: " + tvScreen.getText().toString());
                         if (tvScreen.getText() != "0"){
                             str = tvScreen.getText().toString() +
                                     clickBtn.getText().toString();
@@ -72,15 +73,21 @@ public class MainActivity extends AppCompatActivity {
                             str = clickBtn.getText().toString();
                         }
                         tvScreen.setText(str);
+                        Log.d(TAG, "tvScreen: " + tvScreen.getText().toString());
                         break;
                         // + - * /
                     case R.id.btn_plus:
+
                         // TODO записать число и знак
-                        int num = Integer.getInteger(tvScreen.getText().toString());
+                        Integer num = Integer.parseInt(tvScreen.getText().toString());
                         String sign = clickBtn.getText().toString();
 
+
                         calculator.setNumber(num);
-                        calculator.setSign(sign);
+//                        calculator.setSign(sign);
+
+                        // Вывести на табло 0
+                        tvScreen.setText("0");
                         break;
                 }
             }
@@ -91,5 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn1.setOnClickListener(onClickListener);
         btn2.setOnClickListener(onClickListener);
+
+        btnPlus.setOnClickListener(onClickListener);
     }
 }
