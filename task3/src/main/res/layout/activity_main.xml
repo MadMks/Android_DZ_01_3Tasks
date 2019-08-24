@@ -32,7 +32,8 @@
                     android:gravity="end"
                     android:background="@color/colorResultScreen"
                     android:padding="@dimen/padding_TV"
-                    android:text="test"/>
+                    android:text="test"
+                    android:id="@+id/calc_screen"/>
 
             </LinearLayout>
 
@@ -146,14 +147,16 @@
                 android:layout_weight="1"
                 android:layout_margin="@dimen/marginButton"
                 android:textSize="@dimen/sizeTextBtn"
-                android:text="1"/>
+                android:text="1"
+                android:id="@+id/btn_1"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_margin="@dimen/marginButton"
                 android:textSize="@dimen/sizeTextBtn"
-                android:text="2"/>
+                android:text="2"
+                android:id="@+id/btn_2"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
